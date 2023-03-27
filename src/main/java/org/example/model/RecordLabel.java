@@ -5,15 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Record Label")
+@Table(name = "RecordLabel")
 public class RecordLabel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "record_label_ID")
@@ -23,4 +23,7 @@ public class RecordLabel {
     private String name;
 
     private String website;
+
+    @OneToMany(mappedBy = "recordLabel")
+    private List<Album> albums;
 }

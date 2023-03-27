@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,15 +14,18 @@ import lombok.Setter;
 @Entity
 @Table(name = "Artist")
 public class Artist {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "artist_ID")
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "artist_ID")
+	private long id;
+	
+	@Column(name = "artist_name")
+	private String name;
 
-    @Column(name = "artist_name")
-    private String name;
+	@Column(name = "artist_type")
+	private String type;
 
-    @Column(name = "artist_type")
-    private String type;
+	@OneToMany(mappedBy = "artist")
+	private List<Track> tracks;
 
 }
