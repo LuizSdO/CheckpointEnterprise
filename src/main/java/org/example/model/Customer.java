@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Costumer")
 public class Customer {
-        @Email
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "email")
     private String email;
